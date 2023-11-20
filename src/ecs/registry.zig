@@ -531,7 +531,7 @@ pub const Registry = struct {
     }
 
     /// returns the Type that a view will be based on the includes and excludes
-    fn ViewType(comptime includes: anytype, comptime excludes: anytype) type {
+    pub fn ViewType(comptime includes: anytype, comptime excludes: anytype) type {
         if (includes.len == 1 and excludes.len == 0) return BasicView(includes[0]);
         return MultiView(includes.len, excludes.len);
     }
